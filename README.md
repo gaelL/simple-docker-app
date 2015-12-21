@@ -18,11 +18,14 @@ echo 'X.X.X.X simple-docker-app.com' >> /etc/hosts
 Curl example :
 
 ```
-curl simple-docker-app.com
+curl simple-docker-app.com -vvv
+
+# Get cookie from app
+curl --cookie-jar ./cookie.txt simple-docker-app.com -vvv
 
 # With header
-curl -H 'myheader: foo' simple-docker-app.com
+curl -H 'myheader: foo' simple-docker-app.com -vvv
 
-# With cookie
-curl -b 'mycookie=foo' simple-docker-app.com
+# With string cookie
+curl --cookie 'mycookie=foo' simple-docker-app.com -vvv
 ```
