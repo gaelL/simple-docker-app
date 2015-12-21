@@ -6,9 +6,10 @@ COPY ./simple_app.py /opt/simple_app.py
 
 EXPOSE 5000
 
-#ENTRYPOINT ["/usr/bin/python"]
-#CMD ["/opt/simple_app.py"]
+USER root
+ENTRYPOINT ["/usr/bin/python"]
+CMD ["/opt/simple_app.py"]
 
-# For debug
-ENTRYPOINT ["/bin/bash"]
-CMD ["-c", "/bin/sleep 3600"]
+## For debug
+#ENTRYPOINT ["/bin/bash"]
+#CMD ["-c", "/bin/sleep 3600"]
