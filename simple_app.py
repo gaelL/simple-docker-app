@@ -2,6 +2,7 @@
 
 from flask import Flask, request, make_response
 from datetime import datetime
+import socket
 
 app = Flask(__name__)
 
@@ -18,9 +19,16 @@ def hello():
 ######## Request Cookies :
 %s
 
+######## Server infos :
+%s  -  %s
+
 ######## Response Header :
 %s
-""" % (request.headers, request.cookies, resp.headers)
+""" % (request.headers,
+       request.cookies,
+       socket.gethostname(),
+       socket.gethostbyname(socket.gethostname()),
+       resp.headers)
     resp.data = output
     print output
     return resp
