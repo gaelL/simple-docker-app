@@ -22,6 +22,8 @@ curl simple-docker-app.com -vvv
 
 # Get cookie from app
 curl --cookie-jar ./cookie.txt simple-docker-app.com -vvv
+# Use the cookie
+curl --cookie ./cookie.txt simple-docker-app.com -vvv
 
 # With header
 curl -H 'myheader: foo' simple-docker-app.com -vvv
