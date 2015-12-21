@@ -6,7 +6,7 @@ COPY ./simple_app.py /opt/simple_app.py
 
 EXPOSE 5000
 
-USER root
+USER www-data
 ENTRYPOINT ["/usr/bin/python"]
 CMD ["/opt/simple_app.py"]
 
