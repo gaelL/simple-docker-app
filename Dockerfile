@@ -8,9 +8,9 @@ RUN echo "root:x:1000030000:0:root:/root:/bin/bash" >> /etc/passwd
 
 EXPOSE 5000
 
-#ENTRYPOINT ["/usr/bin/python"]
-#CMD ["/opt/simple_app.py"]
+ENTRYPOINT ["/usr/bin/python"]
+CMD ["/opt/simple_app.py"]
 
-# For debug
-ENTRYPOINT ["/bin/bash"]
-CMD ["-c", "/bin/sleep 3600"]
+## For debug
+#ENTRYPOINT ["/bin/bash"]
+#CMD ["-c", "/bin/sleep 3600"]
