@@ -31,3 +31,13 @@ curl -H 'myheader: foo' simple-docker-app.com -vvv
 # With string cookie
 curl --cookie 'mycookie=foo' simple-docker-app.com -vvv
 ```
+
+Custom usage :
+
+```
+git clone https://github.com/gaelL/simple-docker-app
+# do my modifications and push in a new branch
+oc new-app . --strategy=docker -e https_proxy=http://...:8080,http_proxy=http://...:8080 -o json > ../template.json
+# edit template.json to add proxy params and modify the branch.
+oc create -f template.json
+```
