@@ -7,16 +7,23 @@ import socket
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def hello():
+
     resp = make_response()
+
+    # Set random cookie
     resp.set_cookie('cookie_custom', value='values %s' % datetime.now())
-    print dir(resp.response)
+
+    # print dir(resp.response)
     # resp.headers['X-Parachutes'] = 'parachutes are cool'
     output = """######## Request headers :
 %s
 
 ######## Request Cookies :
+%s
+
+######## Request POST :
 %s
 
 ######## Server infos :
@@ -26,6 +33,7 @@ def hello():
 %s
 """ % (request.headers,
        request.cookies,
+       request.form.lists(),
        socket.gethostname(),
        socket.gethostbyname(socket.gethostname()),
        resp.headers)
