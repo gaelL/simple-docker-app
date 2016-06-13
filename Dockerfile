@@ -1,7 +1,13 @@
-FROM debian
 MAINTAINER Gaël Lambert <gael.lambert@readme.fr>
 
-RUN apt-get update && apt-get install -y vim ca-certificates python-setuptools && easy_install pip && pip install flask && apt-get clean
+# Debian version
+#FROM debian
+#RUN apt-get update && apt-get install -y vim ca-certificates python-setuptools && easy_install pip && pip install flask && apt-get clean
+
+# Centos version
+FROM centos
+RUN yum install -y vim python-setuptools && easy_install pip && pip install flask
+
 COPY ./simple_app.py /opt/simple_app.py
 
 RUN echo "root:x:1000030000:0:root:/root:/bin/bash" >> /etc/passwd
