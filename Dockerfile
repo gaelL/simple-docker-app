@@ -1,4 +1,5 @@
-FROM debian
+#FROM debian
+FROM docker.io/library/debian:latest
 MAINTAINER Gaël Lambert <gael.lambert@readme.fr>
 
 RUN apt-get update && apt-get install -y vim ca-certificates python-setuptools && easy_install pip && pip install flask && apt-get clean
