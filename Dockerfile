@@ -10,7 +10,7 @@ RUN yum install -y vim python-setuptools && easy_install pip && pip install flas
 
 # Fix 'getpwuid(): uid not found: (http://blog.dscpl.com.au/2015_12_01_archive.html)
 ENV LOGNAME python
-ENV USER ipython 
+ENV USER ipython
 
 MAINTAINER Gaël Lambert <gael.lambert@readme.fr>
 COPY ./simple_app.py /opt/simple_app.py
