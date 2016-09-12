@@ -6,8 +6,7 @@
 # Centos version
 FROM centos
 RUN yum install -y vim python-setuptools && easy_install pip && pip install flask
-RUN id
-RUN echo "root:x:1000040000:0:root:/root:/bin/bash" >> /etc/passwd
+RUN echo "root:x:1001:0:root:/root:/bin/bash" >> /etc/passwd
 
 MAINTAINER Gaël Lambert <gael.lambert@readme.fr>
 COPY ./simple_app.py /opt/simple_app.py
