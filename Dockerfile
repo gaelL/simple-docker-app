@@ -6,6 +6,7 @@
 # Centos version
 FROM centos
 RUN yum install -y vim python-setuptools && easy_install pip && pip install flask
+RUN yum install -y git
 #RUN echo "root:x:1001:0:root:/root:/bin/bash" >> /etc/passwd
 
 # Fix 'getpwuid(): uid not found: (http://blog.dscpl.com.au/2015_12_01_archive.html)
