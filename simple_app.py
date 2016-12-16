@@ -17,7 +17,9 @@ def hello():
 
     # print dir(resp.response)
     # resp.headers['X-Parachutes'] = 'parachutes are cool'
-    output = """######## Request headers :
+    output = """"VERSION : %s
+
+######## Request headers :
 %s
 
 ######## Request Cookies :
@@ -31,7 +33,8 @@ def hello():
 
 ######## Response Header :
 %s
-""" % (request.headers,
+""" % ("@VERSION@",
+       request.headers,
        request.cookies,
        request.form.lists(),
        socket.gethostname(),
@@ -42,6 +45,5 @@ def hello():
     return resp
 
 if __name__ == "__main__":
-    print "VERSION : %s" % "@VERSION@"
     app.run(debug=True, port=5000, host='0.0.0.0')
 
