@@ -14,6 +14,7 @@ ENV USER ipython
 
 MAINTAINER Gaël Lambert <gael.lambert@readme.fr>
 COPY ./simple_app.py /opt/simple_app.py
+run sed -i "s/@VERSION@/$(git log --oneline  | head -n1)/" /opt/simple_app.py
 
 EXPOSE 5000
 
