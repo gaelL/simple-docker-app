@@ -6,8 +6,6 @@
 # Centos version
 FROM centos
 RUN yum install -y vim python-setuptools && easy_install pip && pip install flask
-RUN yum install -y git
-RUN env
 #RUN echo "root:x:1001:0:root:/root:/bin/bash" >> /etc/passwd
 
 # Fix 'getpwuid(): uid not found: (http://blog.dscpl.com.au/2015_12_01_archive.html)
@@ -16,7 +14,7 @@ ENV USER ipython
 
 MAINTAINER Gaël Lambert <gael.lambert@readme.fr>
 COPY ./simple_app.py /opt/simple_app.py
-run sed -i "s/@VERSION@/$(git log --oneline  | head -n1)/" /opt/simple_app.py
+run sed -i "s/@VERSION@/$(date +%s)/" /opt/simple_app.py
 
 EXPOSE 5000
 
