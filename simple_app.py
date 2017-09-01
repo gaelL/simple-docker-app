@@ -6,9 +6,9 @@ import socket
 
 app = Flask(__name__)
 
-
+@app.errorhandler(404)
 @app.route("/", methods=['GET', 'POST'])
-def hello():
+def hello(error_404=None):
 
     resp = make_response()
 
