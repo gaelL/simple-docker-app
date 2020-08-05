@@ -25,6 +25,7 @@ def hello(error_404=None):
 
 ######## Request POST :
 %s
+%s
 
 ######## Server infos :
 %s  -  %s
@@ -34,10 +35,12 @@ def hello(error_404=None):
 """ % (request.headers,
        request.cookies,
        request.form.lists(),
+       request.data,
        socket.gethostname(),
        socket.gethostbyname(socket.gethostname()),
        resp.headers)
     resp.data = output
+
     print output
     return resp
 
