@@ -41,7 +41,7 @@ def hello(error_404=None):
        resp.headers)
     resp.data = output
 
-    print output
+    print(output)
     return resp
 
 if __name__ == "__main__":

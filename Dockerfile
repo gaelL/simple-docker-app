@@ -5,7 +5,7 @@
 
 # Centos version
 FROM centos
-RUN yum install -y vim python-setuptools && easy_install pip && pip install flask
+RUN yum install -y vim python3-pip && pip3 install flask
 #RUN echo "root:x:1001:0:root:/root:/bin/bash" >> /etc/passwd
 
 # Fix 'getpwuid(): uid not found: (http://blog.dscpl.com.au/2015_12_01_archive.html)
@@ -17,7 +17,7 @@ COPY ./simple_app.py /opt/simple_app.py
 
 EXPOSE 5000
 
-ENTRYPOINT ["/usr/bin/python"]
+ENTRYPOINT ["/usr/bin/python3"]
 CMD ["/opt/simple_app.py"]
 
 ## For debug
