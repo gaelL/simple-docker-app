@@ -4,8 +4,8 @@
 #RUN echo "root:x:1000030000:0:root:/root:/bin/bash" >> /etc/passwd
 
 # Centos version
-FROM centos
-RUN yum install -y vim python3-pip && pip3 install flask
+FROM debian
+RUN apt-get update && apt-get install -y vim python3-pip && pip3 install flask && apt-get clean
 #RUN echo "root:x:1001:0:root:/root:/bin/bash" >> /etc/passwd
 
 # Fix 'getpwuid(): uid not found: (http://blog.dscpl.com.au/2015_12_01_archive.html)
