@@ -4,7 +4,9 @@
 #RUN echo "root:x:1000030000:0:root:/root:/bin/bash" >> /etc/passwd
 
 # Centos version
+
 FROM python
+
 RUN apt-get update && apt-get install -y vim python3-flask && apt-get clean
 #RUN echo "root:x:1001:0:root:/root:/bin/bash" >> /etc/passwd
 
